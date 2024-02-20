@@ -7,6 +7,7 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
+            //VETOR NORMAL
             double[] vetor = new double[4];
             
             for (int i = 0; i < vetor.Length; i++)
@@ -16,6 +17,8 @@ namespace PrimeiroProjeto
 
             Console.WriteLine(vetor.ToString());
 
+
+            //VETOR DE CLASSES
             Produto[] vetorProdutos = new Produto[3];
 
             vetorProdutos[0] = new Produto("TV", 900.00, 1);
@@ -31,6 +34,10 @@ namespace PrimeiroProjeto
             double media = sum / 3;
 
             Console.WriteLine(media);
+
+            //VETOR COMO PARÂMETRO - PARAMS
+            double total = Somador.SomaTudo(1.00, 9.47, 0.11, 2.53);
+            Console.WriteLine(total);
         }
     }
 }
