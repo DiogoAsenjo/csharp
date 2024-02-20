@@ -7,19 +7,30 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            Produto caneta = new Produto("Caneta", 2.50, 10);
+            double[] vetor = new double[4];
+            
+            for (int i = 0; i < vetor.Length; i++)
+            {
+                vetor[i] = double.Parse(Console.ReadLine());
+            }
 
-            ContaBancaria contaDiogo = new ContaBancaria(1, "Diogo Asenjo", 200.00);
+            Console.WriteLine(vetor.ToString());
 
-            Console.WriteLine(contaDiogo.Saldo);
+            Produto[] vetorProdutos = new Produto[3];
 
-            contaDiogo.Deposito(100.00);
+            vetorProdutos[0] = new Produto("TV", 900.00, 1);
+            vetorProdutos[1] = new Produto("Frigideira", 400.00, 1);
+            vetorProdutos[2] = new Produto("Stove", 800.00, 1);
 
-            Console.WriteLine(contaDiogo.Saldo);
+            double sum = 0.00;
+            for (int i = 0; i < vetorProdutos.Length; i++)
+            {
+                sum += vetorProdutos[i].Preco;
+            }
 
-            contaDiogo.Saque(50.00);
+            double media = sum / 3;
 
-            Console.WriteLine(contaDiogo.Saldo);
+            Console.WriteLine(media);
         }
     }
 }

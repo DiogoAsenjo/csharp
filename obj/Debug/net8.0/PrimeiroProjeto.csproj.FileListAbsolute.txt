@@ -12,3 +12,4 @@ C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\obj\Debug\net8.0\refint\Prime
 C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\obj\Debug\net8.0\PrimeiroProjeto.pdb
 C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\obj\Debug\net8.0\PrimeiroProjeto.genruntimeconfig.cache
 C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\obj\Debug\net8.0\ref\PrimeiroProjeto.dll
+C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\obj\Debug\net8.0\PrimeiroProjeto.sourcelink.json
