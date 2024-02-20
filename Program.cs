@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace PrimeiroProjeto
 {
@@ -38,6 +39,20 @@ namespace PrimeiroProjeto
             //VETOR COMO PARÂMETRO - PARAMS
             double total = Somador.SomaTudo(1.00, 9.47, 0.11, 2.53);
             Console.WriteLine(total);
+
+            //LISTA
+            List<string> listaDeNomes = new List<string>{"Diogo", "Neemias", "Ryan", "Diego"};
+
+            listaDeNomes.Add("Russio");
+
+            Console.WriteLine(listaDeNomes.Last());
+
+            List<string> nomesComD = listaDeNomes.FindAll(nome => nome[0] == 'D');
+
+            foreach (string nome in nomesComD)
+            {
+                Console.WriteLine(nome);
+            }
         }
     }
 }
