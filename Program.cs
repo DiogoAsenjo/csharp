@@ -21,11 +21,10 @@ namespace PrimeiroProjeto
             Transaction t2 = new Transaction(2, 20.00, lorena, conta1);
             Transaction t3 = new Transaction(3, 50.00, diogo, conta1);
 
-            Transaction t1c2 = new Transaction(1, 40.00, ryan, conta2);
-            Transaction t2c2 = new Transaction(2, 10.00, neemias, conta2);
-            Transaction t3c2 = new Transaction(3, 30.00, neemias, conta2);
+            Transaction t2c2 = new Transaction(2, 50.00, neemias, conta2);
+            Transaction t3c2 = new Transaction(2, 60.00, ryan, conta2);
 
-            Console.WriteLine(conta2.seeingWhoOwnsWho());
+            Console.WriteLine(conta2.Balance);
         }
     }
 }
