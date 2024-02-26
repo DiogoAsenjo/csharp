@@ -9,22 +9,21 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            User diogo = new User(1, "Diogo");
-            User lorena = new User(2, "Lorena");
-            User ryan = new User(3, "Ryan");
-            User neemias = new User(4, "Neemias");
+            Departament d1 = new Departament("Operations");
 
-            Account conta1 = new Account(1, diogo, lorena);
-            Account conta2 = new Account(2, ryan, neemias);
+            Worker w1 = new Worker("Diogo", WokerLevel.Junior, 1600.00, d1);
 
-            Transaction t1 = new Transaction(1, 10.00, diogo, conta1);
-            Transaction t2 = new Transaction(2, 20.00, lorena, conta1);
-            Transaction t3 = new Transaction(3, 50.00, diogo, conta1);
+            HourContract hc1 = new HourContract(new DateTime(2023, 12, 29), 1.00, 1);
+            HourContract hc2 = new HourContract(new DateTime(2023, 12, 29), 1.00, 2);
 
-            Transaction t2c2 = new Transaction(2, 50.00, neemias, conta2);
-            Transaction t3c2 = new Transaction(2, 60.00, ryan, conta2);
+            w1.AddContract(hc1);
+            w1.AddContract(hc2);
+            w1.RemoveContract(hc2);
 
-            Console.WriteLine(conta2.Balance);
+            double salary = w1.Income(12, 2023);
+
+
+            Console.WriteLine(salary);
         }
     }
 }
