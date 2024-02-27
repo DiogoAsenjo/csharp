@@ -17,5 +17,10 @@ namespace PrimeiroProjeto
             double baseSalary = base.Payment();
             return baseSalary + AditionalCharge;
         }
+
+        public string OutsourceMethod()
+        {
+            return "This is an exclusive method of outsource employee";
+        }
     }
 }

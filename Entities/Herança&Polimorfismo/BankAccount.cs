@@ -2,7 +2,8 @@ using System;
 
 namespace PrimeiroProjeto
 {
-    class BankAccount
+    //Abstract não deixa que a classe seja instanciada, apenas as classes filhas.
+    abstract class BankAccount
     {
         public int Number { get; set; }
         public string Holder { get; set; }

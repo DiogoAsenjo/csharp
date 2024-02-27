@@ -20,9 +20,8 @@ namespace PrimeiroProjeto
             //Console.WriteLine(downcasting);
 
             //Sobreposição de método e polimorfismo
-            BankAccount bankAcc = new BankAccount(1, "Diogo", 100.00);
             BankAccount savAcc = new SavingAccount(1, "Diogo", 0.20, 100.00);
-            bankAcc.Withdraw(10.00);
+            busAcc.Withdraw(10.00);
             //Console.WriteLine(bankAcc);
             savAcc.Withdraw(10.00);
             //Console.WriteLine(savAcc);
