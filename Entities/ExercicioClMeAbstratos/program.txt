@@ -1,0 +1,5 @@
+            Shape rect = new Rectangle(Color.Blue, 4.00, 5.00);
+            Shape circ = new Circle(Color.Red, 3.00);
+
+            Console.WriteLine(rect.Area());
+            Console.WriteLine(circ.Area());

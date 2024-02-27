@@ -1,0 +1,4 @@
+            Employee diogo = new Employee("Diogo", 10, 2.00);
+            Employee ellen = new OutsourceEmployee("Ellen", 10, 2.00, 10);
+            Console.WriteLine(diogo.Payment());
+            Console.WriteLine(ellen.Payment());
