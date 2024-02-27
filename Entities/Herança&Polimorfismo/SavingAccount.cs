@@ -18,7 +18,9 @@ namespace PrimeiroProjeto
             Balance += income;
        }
 
-        public override void Withdraw(double amount)
+        //Override = está sobrepondo o método do classe mãe
+        //Sealde = serve apenas para métodos sobrepostos para evitar que haja sobreposição do método já sobreposto.
+        public sealed override void Withdraw(double amount)
         {
             Balance -= amount;
         }
