@@ -17,14 +17,21 @@ namespace PrimeiroProjeto
 
             //DOWNCASTING. Cuidado com isso, tem que ser instancia com o tipo que vai virar.
             BusinessAccount downcasting = upcasting2 as BusinessAccount;
-            Console.WriteLine(downcasting);
+            //Console.WriteLine(downcasting);
 
+            //Sobreposição de método e polimorfismo
             BankAccount bankAcc = new BankAccount(1, "Diogo", 100.00);
-            SavingAccount savAcc = new SavingAccount(1, "Diogo", 0.20, 100.00);
+            BankAccount savAcc = new SavingAccount(1, "Diogo", 0.20, 100.00);
             bankAcc.Withdraw(10.00);
-            Console.WriteLine(bankAcc);
+            //Console.WriteLine(bankAcc);
             savAcc.Withdraw(10.00);
-            Console.WriteLine(savAcc);
+            //Console.WriteLine(savAcc);
+
+            //Exercício polimorfismo
+            Employee diogo = new Employee("Diogo", 10, 2.00);
+            Employee ellen = new OutsourceEmployee("Ellen", 10, 2.00, 10);
+            Console.WriteLine(diogo.Payment());
+            Console.WriteLine(ellen.Payment());
         }
     }
 }
