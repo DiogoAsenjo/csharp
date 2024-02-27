@@ -9,16 +9,22 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            BankAccount bankAcc = new BankAccount(1, "Diogo");
             BusinessAccount busAcc = new BusinessAccount(1, "ModalGR", 500.00);
 
             //UPCASTING. Como BusinessAccount é classe mãe, as linhas abaixo sãp possíveis.
-            BankAccount teste = busAcc;
-            BankAccount teste2 = new BusinessAccount(2, "Paiol", 100.00);
+            BankAccount upcasting1 = busAcc;
+            BankAccount upcasting2 = new BusinessAccount(2, "Paiol", 100.00);
 
             //DOWNCASTING. Cuidado com isso, tem que ser instancia com o tipo que vai virar.
-            BusinessAccount teste3 = teste2 as BusinessAccount;
-            Console.WriteLine(teste3);
+            BusinessAccount downcasting = upcasting2 as BusinessAccount;
+            Console.WriteLine(downcasting);
+
+            BankAccount bankAcc = new BankAccount(1, "Diogo", 100.00);
+            SavingAccount savAcc = new SavingAccount(1, "Diogo", 0.20, 100.00);
+            bankAcc.Withdraw(10.00);
+            Console.WriteLine(bankAcc);
+            savAcc.Withdraw(10.00);
+            Console.WriteLine(savAcc);
         }
     }
 }

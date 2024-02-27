@@ -24,14 +24,15 @@ namespace PrimeiroProjeto
             Balance += amount;
         }
 
-        public void Withdraw(double amount)
+        public virtual void Withdraw(double amount)
         {
+            double withdrawTax = 5.00;
             if(amount > Balance)
             {
                 Console.WriteLine($"You can only withdraw up until ${Balance}");
             } else 
             {
-                Balance -= amount;
+                Balance -= amount + withdrawTax;
             }
         }
 
