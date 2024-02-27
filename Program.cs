@@ -9,21 +9,16 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            Departament d1 = new Departament("Operations");
+            BankAccount bankAcc = new BankAccount(1, "Diogo");
+            BusinessAccount busAcc = new BusinessAccount(1, "ModalGR", 500.00);
 
-            Worker w1 = new Worker("Diogo", WokerLevel.Junior, 1600.00, d1);
+            //UPCASTING. Como BusinessAccount é classe mãe, as linhas abaixo sãp possíveis.
+            BankAccount teste = busAcc;
+            BankAccount teste2 = new BusinessAccount(2, "Paiol", 100.00);
 
-            HourContract hc1 = new HourContract(new DateTime(2023, 12, 29), 1.00, 1);
-            HourContract hc2 = new HourContract(new DateTime(2023, 12, 29), 1.00, 2);
-
-            w1.AddContract(hc1);
-            w1.AddContract(hc2);
-            w1.RemoveContract(hc2);
-
-            double salary = w1.Income(12, 2023);
-
-
-            Console.WriteLine(salary);
+            //DOWNCASTING. Cuidado com isso, tem que ser instancia com o tipo que vai virar.
+            BusinessAccount teste3 = teste2 as BusinessAccount;
+            Console.WriteLine(teste3);
         }
     }
 }
