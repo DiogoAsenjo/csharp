@@ -1,24 +1,38 @@
-﻿
+﻿using System.IO;
+using System.Collections.Generic;  
+
 namespace PrimeiroProjeto
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            DateTime checkIn = new DateTime(2024, 05, 10);
-            DateTime checkOut = new DateTime(2024, 05, 09);
-            try 
+            string filePath = @"C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\Entities\Arquivos\Document.txt";
+            string targetPath = @"C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\Entities\Arquivos\Teste.txt";
+            string folderPath = @"C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\Entities";
+            try
             {
-                Reservation firstReserve = new Reservation(1, checkIn, checkOut);
-                Console.WriteLine(firstReserve);
-            }
-            catch (DomainException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            
+                IEnumerable<String> folders  = Directory.EnumerateDirectories(folderPath, "*.*", SearchOption.AllDirectories);
+                
+                foreach(string folder in folders)
+                {
+                    Console.WriteLine(folder);
+                }
 
-            
+                string[] lines = File.ReadAllLines(filePath);
+
+                using(StreamWriter sw = File.AppendText(targetPath))
+                {
+                    foreach(string line in lines)
+                    {
+                        sw.WriteLine(line.ToUpper());
+                    }
+                }
+            }
+                catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
