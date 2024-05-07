@@ -1,5 +1,5 @@
-﻿using System.IO;
-using System.Collections.Generic;  
+﻿using PrimeiroProjeto.Entities;
+using PrimeiroProjeto.Entities.AulaInterface.Services;
 
 namespace PrimeiroProjeto
 {
@@ -7,32 +7,18 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            string filePath = @"C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\Entities\Arquivos\Document.txt";
-            string targetPath = @"C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\Entities\Arquivos\Teste.txt";
-            string folderPath = @"C:\Users\Diogo\Desktop\Cursos\.NET\PrimeiroProjeto\Entities";
-            try
-            {
-                IEnumerable<String> folders  = Directory.EnumerateDirectories(folderPath, "*.*", SearchOption.AllDirectories);
-                
-                foreach(string folder in folders)
-                {
-                    Console.WriteLine(folder);
-                }
+            Vehicle first = new Vehicle("UNO");
+            Console.WriteLine(first);
+            DateTime start = new DateTime(2024, 05, 07, 10, 00, 00);
+            DateTime end = new DateTime(2024, 05, 08, 11, 00, 00);
 
-                string[] lines = File.ReadAllLines(filePath);
+            CarRental carRental = new CarRental(start, end, first);
+            Console.WriteLine(carRental);
 
-                using(StreamWriter sw = File.AppendText(targetPath))
-                {
-                    foreach(string line in lines)
-                    {
-                        sw.WriteLine(line.ToUpper());
-                    }
-                }
-            }
-                catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            RentalService rentalService= new RentalService(1.00, 10.00, new BrazilTaxService());
+            rentalService.ProcessInvoice(carRental);
+
+            Console.WriteLine(carRental.Invoice);
         }
     }
 }
