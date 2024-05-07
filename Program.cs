@@ -1,24 +1,20 @@
-﻿using PrimeiroProjeto.Entities;
-using PrimeiroProjeto.Entities.AulaInterface.Services;
-
+﻿using PrimeiroProjeto.Entities.ExercicioInterface;
+using PrimeiroProjeto.Entities.ExercicioInterface.Services;
 namespace PrimeiroProjeto
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Vehicle first = new Vehicle("UNO");
-            Console.WriteLine(first);
-            DateTime start = new DateTime(2024, 05, 07, 10, 00, 00);
-            DateTime end = new DateTime(2024, 05, 08, 11, 00, 00);
+            Contract firstContract = new Contract(123, DateTime.Now, 600.00);
 
-            CarRental carRental = new CarRental(start, end, first);
-            Console.WriteLine(carRental);
+            ContractService contractService= new ContractService(new PaypalService());
+            contractService.processContract(firstContract, 3);
 
-            RentalService rentalService= new RentalService(1.00, 10.00, new BrazilTaxService());
-            rentalService.ProcessInvoice(carRental);
-
-            Console.WriteLine(carRental.Invoice);
+            foreach(Installment installment in firstContract.Installments)
+            {
+                Console.WriteLine(installment);
+            }
         }
     }
 }
