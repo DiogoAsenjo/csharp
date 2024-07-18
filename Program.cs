@@ -1,20 +1,16 @@
 ﻿using PrimeiroProjeto.Entities.ExercicioInterface;
 using PrimeiroProjeto.Entities.ExercicioInterface.Services;
+using PrimeiroProjeto.Entities.Generics;
 namespace PrimeiroProjeto
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Contract firstContract = new Contract(123, DateTime.Now, 600.00);
-
-            ContractService contractService= new ContractService(new PaypalService());
-            contractService.processContract(firstContract, 3);
-
-            foreach(Installment installment in firstContract.Installments)
-            {
-                Console.WriteLine(installment);
-            }
+            PrintService printService = new PrintService();
+            printService.addValue(2);
+            Console.WriteLine(printService.first());
+            printService.print();
         }
     }
 }

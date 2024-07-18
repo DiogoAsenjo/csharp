@@ -1,0 +1,20 @@
+using PrimeiroProjeto.Entities.ExercicioInterface;
+using PrimeiroProjeto.Entities.ExercicioInterface.Services;
+namespace PrimeiroProjeto
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Contract firstContract = new Contract(123, DateTime.Now, 600.00);
+
+            ContractService contractService= new ContractService(new PaypalService());
+            contractService.processContract(firstContract, 3);
+
+            foreach(Installment installment in firstContract.Installments)
+            {
+                Console.WriteLine(installment);
+            }
+        }
+    }
+}
