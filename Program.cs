@@ -17,7 +17,7 @@ namespace PrimeiroProjeto
             List<Product> list = new List<Product>();
             Product televisao = new Product("Televisão", 20.99);
             Product pc = new Product("PC", 300.99);
-            Product televisao2 = new Product("Televisão", 20.99);
+            Product tablet = new Product("Tablet", 21.99);
             list.Add(televisao);
             list.Add(pc);
 
@@ -25,9 +25,28 @@ namespace PrimeiroProjeto
             Console.WriteLine(calculationService.Max(list));
 
             //GetHashCode e Equals
-            Console.WriteLine(televisao.Equals(televisao2));
+            Console.WriteLine(televisao.Equals(tablet));
             Console.WriteLine(televisao.GetHashCode());
-            Console.WriteLine(televisao2.GetHashCode());
+            Console.WriteLine(tablet.GetHashCode());
+
+            //HashSet e SortedSet são estruturas de dados do C#
+            HashSet<Product> set = new HashSet<Product>();
+            set.Add(televisao);
+            set.Add(pc);
+
+            HashSet<Product> set2 = new HashSet<Product>();
+            set2.Add(televisao);
+
+            HashSet<Product> set3 = new HashSet<Product>();
+            set3.UnionWith(set);
+            set3.IntersectWith(set2);
+
+            //Console.WriteLine(set.Contains(televisao));
+
+            foreach(Product p in set3)
+            {
+                Console.WriteLine(p);
+            }
         }
     }
 }

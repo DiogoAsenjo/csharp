@@ -32,6 +32,8 @@ namespace PrimeiroProjeto.Entities.Generics
 
         }
 
+
+        //O Equals o o GetHashCode são maneiras de verificar se algo é igual ou não. O HasCode é mais rápido já que mas em algumas situações específicas pode dar problema, um mesmo objeto pode gerar o mesmo HashCode mesmo sendo diferente. O ideial é usar o getHashCode e depois o equals para confirmar.
         public override bool Equals(object? obj)
         {
             if (!(obj is Product)) return false;
