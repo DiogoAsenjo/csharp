@@ -47,6 +47,15 @@ namespace PrimeiroProjeto
             {
                 Console.WriteLine(p);
             }
+
+            //Dictionary 
+            Dictionary<string, string> cookies = new Dictionary<string, string>();
+            cookies.Add("user", "Diogo");
+            cookies.Add("password", "123456");
+            foreach(var item in cookies)
+            {
+                Console.WriteLine(item.Key + ": " + item.Value);
+            }
         }
     }
 }
